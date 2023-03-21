@@ -1,0 +1,86 @@
+index
+│
+├─ books
+│  │
+│  ├─ {0}
+│  │  │
+│  │  ├─ id: 1
+│  │  ├─ name: Đắc Nhân Tâm
+│  │  ├─ type: non-fiction
+│  │  ├─ available: true
+│  │  └─ stockCount: 20
+│  │
+│  ├─ {1}
+│  │  │
+│  │  ├─ id: 2
+│  │  ├─ name: Chúa Ruồi
+│  │  ├─ type: fiction
+│  │  ├─ available: false
+│  │  └─ stockCount: 0
+│  │
+│  ├─ {2}
+│  │  │
+│  │  ├─ id: 3
+│  │  ├─ name: Homo Sapien
+│  │  ├─ type: non-fiction
+│  │  ├─ available: true
+│  │  └─ stockCount: 20
+│  │
+│  ├─ {3}
+│  │  │
+│  │  ├─ id: 4
+│  │  ├─ name: Gastby Vĩ Đại
+│  │  ├─ type: fiction
+│  │  ├─ available: true
+│  │  └─ stockCount: 20
+│  │
+│  ├─ {4}
+│  │  │
+│  │  ├─ id: 5
+│  │  ├─ name: Grokking Algo
+│  │  ├─ type: non-fiction
+│  │  ├─ available: true
+│  │  └─ stockCount: 20
+│  │
+│  └─ {5}
+│     │
+│     ├─ id: 6
+│     ├─ name: Chiến Tranh Và Hòa Bình
+│     ├─ type: fiction
+│     ├─ available: true
+│     └─ stockCount: 20
+│
+├─ orders
+│  │
+│  ├─ {0}
+│  │  │
+│  │  ├─ id: 1
+│  │  ├─ bookId: 1
+│  │  ├─ customerName: user1
+│  │  ├─ quantity: 1
+│  │  └─ timestamp: 1645417257150
+│  │
+│  └─ {1}
+│     │
+│     ├─ id: 2
+│     ├─ bookId: 4
+│     ├─ quantity: 1
+│     └─ timestamp: 1645628437612
+│
+└─ users
+   │
+   ├─ {0}
+   │  │
+   │  ├─ id: 1
+   │  ├─ usersname: admin
+   │  ├─ email: admin@gmail.com
+   │  ├─ password: admin123
+   │  └─ phoneNumber: 123456789
+   │
+   └─ {1}
+      │
+      ├─ id: 2
+      ├─ usersname: user1
+      ├─ email: sirnhat0@gmail.com
+      ├─ password: abc123
+      └─ phoneNumber: 987654321
