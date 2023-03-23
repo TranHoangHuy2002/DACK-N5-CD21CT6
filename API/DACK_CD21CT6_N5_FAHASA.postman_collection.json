@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "51539197-d0f1-4687-a0d1-b49d9ee59940",
-		"name": "DACK_FAHASA",
+		"name": "DACK_CD21CT6_N5_FAHASA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25656252"
 	},
@@ -17,7 +17,10 @@
 							"script": {
 								"exec": [
 									"pm.collectionVariables.set('email',pm.response.json().data.email)\r",
-									"pm.collectionVariables.set('username',pm.response.json().data.username)"
+									"pm.collectionVariables.set('username',pm.response.json().data.username)\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -28,7 +31,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"minhNhat\",\r\n    \"email\":\"sirnhat0@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"username\":\"minhNhat\",\r\n    \"email\":\"sirnhat0@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"phoneNumber\": \"123456789\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -48,13 +51,26 @@
 					"response": []
 				},
 				{
-					"name": "REGISTER with exits phone number",
+					"name": "REGISTER with exisiting email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"minhNhat\",\r\n    \"email\":\"sirnhat0@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"username\":\"minhNhat\",\r\n    \"email\":\"sirnhat0@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"phoneNumber\": \"123456789\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -80,7 +96,10 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.collectionVariables.set('accessToken',pm.response.json().data.access_token)"
+									"pm.collectionVariables.set('accessToken',pm.response.json().data.access_token)\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -91,7 +110,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"{{email}}\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"email\":\"{{email}}\",\r\n    \"password\":\"123456\",\r\n    \"phoneNumber\": \"123456789\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -111,13 +130,26 @@
 					"response": []
 				},
 				{
-					"name": "LOGIN with wrong phone number",
+					"name": "LOGIN with wrong email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('list of books request status ',()=>{\r",
+									"    pm.response.to.have.status(401)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"wingedbeast0307@gmail.comm\",\r\n    \"password\":\"123456\"\r\n}",
+							"raw": "{\r\n    \"email\":\"wingedbeast0307@gmail.comm\",\r\n    \"password\":\"123456\",\r\n    \"phoneNumber\": 987654321\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -138,6 +170,19 @@
 				},
 				{
 					"name": "List of users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -166,6 +211,19 @@
 				},
 				{
 					"name": "Find user by phone number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -184,7 +242,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"wingedbeast0307@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"email\":\"wingedbeast0307@gmail.com\",\r\n    \"phoneNumber\": 123456789\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -253,6 +311,19 @@
 				},
 				{
 					"name": "GET Single book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('list of books request status ',()=>{\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -287,7 +358,9 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"\r",
+									"pm.test('list of books request status ',()=>{\r",
+									"    pm.response.to.have.status(200)\r",
+									"})\r",
 									"pm.collectionVariables.set('orderId',pm.response.json().data.id)"
 								],
 								"type": "text/javascript"
@@ -331,6 +404,19 @@
 				},
 				{
 					"name": "Order A book false",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('list of books request status ',()=>{\r",
+									"    pm.response.to.have.status(401)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -368,6 +454,19 @@
 				},
 				{
 					"name": "API Get an order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('list of books request status ',()=>{\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -403,6 +502,19 @@
 				},
 				{
 					"name": "Api Update order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('list of books request status ',()=>{\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -447,6 +559,19 @@
 				},
 				{
 					"name": "Delete Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('list of books request status ',()=>{\r",
+									"    pm.response.to.have.status(204)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -482,6 +607,19 @@
 				},
 				{
 					"name": "Get All Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('list of books request status ',()=>{\r",
+									"    pm.response.to.have.status(200)\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -516,7 +654,9 @@
 							"script": {
 								"exec": [
 									"pm.collectionVariables.set('accessToken',null)\r",
-									""
+									"pm.test('list of books request status ',()=>{\r",
+									"    pm.response.to.have.status(204)\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
